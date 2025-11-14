@@ -54,15 +54,23 @@
             <artifactId>spark-sql_2.12</artifactId>
             <version>3.5.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Spring Boot Maven Plugin -->
+            <!-- Spring Boot Maven Plugin avec mainClass spécifiée -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- Remplace cette classe par celle que tu veux exécuter -->
+                    <mainClass>com.openfoodfacts.etl.etl.extract.Extractor</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
